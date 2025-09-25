@@ -89,7 +89,7 @@ npm run dev
 
 ## 🚦 Usage
 
-1. **Start both servers**: Make sure both backend and frontend are running
+1. **Start both servers**: Make sure both backend and frontend are running!
 2. **Access the app**: Open your browser and go to `http://localhost:5173`
 3. **Create notes**: Click on "Create Note" and fill in the title and content
 4. **View notes**: All notes are displayed on the main page
