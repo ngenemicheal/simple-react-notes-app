@@ -1,0 +1,23 @@
+{
+  "name": "notes-app",
+  "version": "1.0.0",
+  "description": "A full-stack notes application built with React, Node.js, Express, and MongoDB. Create, read, update, and delete your notes with a clean and intuitive interface.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
+    "start": "npm run start --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngenemicheal/simple-react-notes-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ngenemicheal/simple-react-notes-app/issues"
+  },
+  "homepage": "https://github.com/ngenemicheal/simple-react-notes-app#readme"
+}
