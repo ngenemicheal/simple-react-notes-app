@@ -15,7 +15,7 @@ const __dirname = path.resolve();
 
 app.use(express.json());
 
-app.use((req, res, next) => {
+app.use((req, _, next) => {
     const now = new Date();
     const formatted = now.toLocaleString("en-GB", {
         day: "2-digit",
@@ -32,8 +32,6 @@ app.use((req, res, next) => {
 
     if (userAgent.includes("cron-job.org")) {
         console.log(`[${formatted}] 🔔 Cron-job.org ping → ${req.method} ${req.originalUrl} from ${req.ip}`);
-    } else {
-        console.log(`[${formatted}] 🌍 User request → ${req.method} ${req.originalUrl} from ${req.ip}`);
     }
 
     next();
