@@ -14,6 +14,33 @@ const port = process.env.PORT || 3005;
 const __dirname = path.resolve();
 
 app.use(express.json());
+
+app.use((req, res, next) => {
+    const now = new Date();
+    const formatted = now.toLocaleString("en-GB", {
+        day: "2-digit",
+        month: "short",
+        year: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+        timeZone: "UTC", // keep times consistent
+    });
+
+    const userAgent = req.get("User-Agent") || "";
+
+    if (userAgent.includes("cron-job.org")) {
+        console.log(`[${formatted}] 🔔 Cron-job.org ping → ${req.method} ${req.originalUrl} from ${req.ip}`);
+    } else {
+        console.log(`[${formatted}] 🌍 User request → ${req.method} ${req.originalUrl} from ${req.ip}`);
+    }
+
+    next();
+});
+
+
+
 if (process.env.NODE_ENV !== "production") {
     app.use(cors({
         origin: "http://localhost:5173",
